@@ -14,13 +14,6 @@ This repo runs **Next.js 16.3.5** with React 19. `AGENTS.md` (imported above) re
 - `node_modules/next/dist/docs/01-app/01-getting-started/` — routing, layouts, data fetching, caching, server/client components
 - `node_modules/next/dist/docs/01-app/03-api-reference/` — config, functions, file conventions
 
-## Commands
-
-- `npm run dev` — start dev server (Turbopack)
-- `npm run build` — production build
-- `npm run start` — run production build
-- `npm run lint` — ESLint (flat config via `eslint.config.mjs`, `eslint-config-next`)
-
 There is no test runner configured yet.
 
 ## Architecture
@@ -34,3 +27,7 @@ There is no test runner configured yet.
 ## Spec-driven workflow
 
 Per README.md, this project follows Spec Driven Design using `/spec` and `/spec-impl` commands from the `Klerith/fernando-skills` skill pack (installed via `npx skills@latest add Klerith/fernando-skills`). These are not yet present in this checkout — if the user invokes `/spec` or `/spec-impl` and they're missing, point them to that install command rather than improvising equivalent behavior.
+
+## Skills
+
+Always use the `/frontend-design` skill when designing or modifying this project's user interface.
