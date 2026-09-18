@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import type { Game } from "@/lib/games";
 import { useUser } from "@/lib/user-context";
 import { saveScore } from "@/lib/scores";
@@ -10,13 +10,10 @@ export default function GamePlayer({ game }: { game: Game }) {
   const { user } = useUser();
   const [paused, setPaused] = useState(false);
   const [over, setOver] = useState(false);
-  const [name, setName] = useState(user?.name ?? "INVITADO");
+  const [nameOverride, setNameOverride] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
 
-  useEffect(() => {
-    if (user?.name) setName(user.name);
-  }, [user]);
-
+  const name = nameOverride ?? user?.name ?? "INVITADO";
   const finalScore = Math.floor(game.best * 0.4);
 
   const handleSave = () => {
@@ -28,6 +25,7 @@ export default function GamePlayer({ game }: { game: Game }) {
     setPaused(false);
     setOver(false);
     setSaved(false);
+    setNameOverride(null);
   };
 
   return (
@@ -105,7 +103,7 @@ export default function GamePlayer({ game }: { game: Game }) {
               <div className="input-row">
                 <input
                   value={name}
-                  onChange={(e) => setName(e.target.value.toUpperCase().slice(0, 10))}
+                  onChange={(e) => setNameOverride(e.target.value.toUpperCase().slice(0, 10))}
                   placeholder="TUS INICIALES"
                 />
                 <button className="btn yellow" onClick={handleSave}>
