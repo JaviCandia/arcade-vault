@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Press_Start_2P, JetBrains_Mono, Courier_Prime } from "next/font/google";
+import { UserProvider } from "@/lib/user-context";
 import "./globals.css";
 
 const pixelFont = Press_Start_2P({
@@ -33,9 +34,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <div className="av-bg" />
         <div className="av-noise" />
-        <div id="root">
-          <main className="av-main">{children}</main>
-        </div>
+        <UserProvider>
+          <div id="root">
+            <main className="av-main">{children}</main>
+          </div>
+        </UserProvider>
       </body>
     </html>
   );
