@@ -1,5 +1,7 @@
 # SPEC 01 — MVP visual de Arcade Vault (pantallas sin juegos)
 
+> **Nota (2026-09-21):** el esquema de rutas de este spec fue reemplazado: `/` ahora es el Home, `/about` es nuevo, y las rutas pasaron a inglés (`/games`, `/games/[id]`, `/games/[id]/play`, `/hall-of-fame`). Lo descrito abajo es el registro histórico.
+
 > **Status:** Implemented \
 > **Depends on:** — \
 > **Date:** 2026-09-17 \
