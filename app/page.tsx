@@ -1,11 +1,6 @@
+import Library from "@/components/Library";
+import { GAMES } from "@/lib/games";
+
 export default function Home() {
-  return (
-    <div className="av-hero fade-in">
-      <h1 className="pixel">Arcade Vault</h1>
-      <p className="sub">
-        <span className="neon-yellow">Inserta moneda</span>{" "}
-        <span className="blink">_</span>
-      </p>
-    </div>
-  );
+  return <Library games={GAMES} />;
 }
