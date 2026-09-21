@@ -1,6 +1,6 @@
 # SPEC 01 — MVP visual de Arcade Vault (pantallas sin juegos)
 
-> **Status:** Approved \
+> **Status:** Implemented \
 > **Depends on:** — \
 > **Date:** 2026-09-17 \
 > **Objective:** Implementar en Next.js App Router, solo la parte visual, las cinco pantallas del prototipo de referencia (`references/templates/`) — biblioteca, detalle de juego, reproductor, salón de la fama y autenticación — sin implementar ningún juego real.
@@ -111,25 +111,25 @@ Cada paso deja la app corriendo con `npm run dev` sin errores de consola ni de b
 
 ## Acceptance criteria
 
-- [ ] `npm run build` compila sin errores de tipos ni de lint.
-- [ ] `/` muestra el hero, buscador, chips de categoría y la grilla de juegos; filtrar por texto o categoría reduce la grilla en tiempo real.
-- [ ] Buscar un término sin coincidencias muestra el estado "NO HAY RESULTADOS".
-- [ ] Click en una `GameCard` (o su botón "JUGAR") navega a `/juegos/[id]`.
-- [ ] `/juegos/[id]` muestra portada, tags, descripción, estadísticas y la tabla de mejores puntuaciones para ese juego.
-- [ ] Visitar `/juegos/id-inexistente` muestra la página 404 de Next.js.
-- [ ] Botón "Jugar ahora" en detalle navega a `/juegos/[id]/jugar`; "Volver al vault" navega a `/`.
-- [ ] `/juegos/[id]/jugar` muestra el HUD y el marco CRT sin que la puntuación cambie sola (sin `setInterval`).
-- [ ] Botón "Pausa" alterna el overlay "EN PAUSA" sobre la pantalla CRT.
-- [ ] Botón "Fin" abre el modal de fin de juego con un puntaje fijo mostrado.
-- [ ] Ingresar iniciales y pulsar "Guardar puntuación" en el modal escribe una entrada en `localStorage["av_scores"]` y muestra el mensaje "PUNTUACIÓN GUARDADA".
-- [ ] Botón "Salir" en el reproductor navega de vuelta a `/juegos/[id]`.
-- [ ] `/salon` muestra tabs por juego; cambiar de tab actualiza podio y tabla.
-- [ ] Con sesión iniciada, `/salon` muestra la fila "TU MEJOR MARCA EN {juego}"; sin sesión, esa fila no aparece.
-- [ ] `/auth` permite alternar entre "Iniciar sesión" y "Crear cuenta"; enviar el formulario o pulsar "Jugar como invitado" inicia sesión y navega a `/`.
-- [ ] Tras iniciar sesión, el botón de la Nav cambia de "Iniciar Sesión" a mostrar el nombre de usuario, y persiste tras recargar la página (F5).
-- [ ] Cerrar sesión desde el botón de usuario en la Nav borra `localStorage["av_user"]` y vuelve a mostrar "Iniciar Sesión".
-- [ ] En viewport móvil (<840px), la Nav oculta los links y muestra el botón hamburguesa; abrirlo despliega el panel lateral con backdrop.
-- [ ] El link activo en la Nav (`biblioteca`/`salon`) se resalta en cian según la ruta actual, incluyendo cuando se está en `/juegos/[id]` o `/juegos/[id]/jugar` (se resalta "Biblioteca").
+- [x] `npm run build` compila sin errores de tipos ni de lint.
+- [x] `/` muestra el hero, buscador, chips de categoría y la grilla de juegos; filtrar por texto o categoría reduce la grilla en tiempo real.
+- [x] Buscar un término sin coincidencias muestra el estado "NO HAY RESULTADOS".
+- [x] Click en una `GameCard` (o su botón "JUGAR") navega a `/juegos/[id]`.
+- [x] `/juegos/[id]` muestra portada, tags, descripción, estadísticas y la tabla de mejores puntuaciones para ese juego.
+- [x] Visitar `/juegos/id-inexistente` muestra la página 404 de Next.js.
+- [x] Botón "Jugar ahora" en detalle navega a `/juegos/[id]/jugar`; "Volver al vault" navega a `/`.
+- [x] `/juegos/[id]/jugar` muestra el HUD y el marco CRT sin que la puntuación cambie sola (sin `setInterval`).
+- [x] Botón "Pausa" alterna el overlay "EN PAUSA" sobre la pantalla CRT.
+- [x] Botón "Fin" abre el modal de fin de juego con un puntaje fijo mostrado.
+- [x] Ingresar iniciales y pulsar "Guardar puntuación" en el modal escribe una entrada en `localStorage["av_scores"]` y muestra el mensaje "PUNTUACIÓN GUARDADA".
+- [x] Botón "Salir" en el reproductor navega de vuelta a `/juegos/[id]`.
+- [x] `/salon` muestra tabs por juego; cambiar de tab actualiza podio y tabla.
+- [x] Con sesión iniciada, `/salon` muestra la fila "TU MEJOR MARCA EN {juego}"; sin sesión, esa fila no aparece.
+- [x] `/auth` permite alternar entre "Iniciar sesión" y "Crear cuenta"; enviar el formulario o pulsar "Jugar como invitado" inicia sesión y navega a `/`.
+- [x] Tras iniciar sesión, el botón de la Nav cambia de "Iniciar Sesión" a mostrar el nombre de usuario, y persiste tras recargar la página (F5).
+- [x] Cerrar sesión desde el botón de usuario en la Nav borra `localStorage["av_user"]` y vuelve a mostrar "Iniciar Sesión".
+- [x] En viewport móvil (<840px), la Nav oculta los links y muestra el botón hamburguesa; abrirlo despliega el panel lateral con backdrop.
+- [x] El link activo en la Nav (`biblioteca`/`salon`) se resalta en cian según la ruta actual, incluyendo cuando se está en `/juegos/[id]` o `/juegos/[id]/jugar` (se resalta "Biblioteca").
 
 ---
 
