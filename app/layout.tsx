@@ -39,6 +39,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <div id="root">
             <Nav />
             <main className="av-main">{children}</main>
+            <footer className="av-footer">
+              © 2026 ARCADE VAULT · HECHO CON PIXELES Y NEÓN · v2.6.0
+            </footer>
           </div>
         </UserProvider>
       </body>
