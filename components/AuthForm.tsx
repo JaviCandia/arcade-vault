@@ -15,12 +15,12 @@ export default function AuthForm() {
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     login({ name: (user || "PLAYER1").toUpperCase().slice(0, 10) });
-    router.push("/");
+    router.push("/games");
   };
 
   const playAsGuest = () => {
     login({ name: "INVITADO" });
-    router.push("/");
+    router.push("/games");
   };
 
   return (

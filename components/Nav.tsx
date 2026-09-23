@@ -5,17 +5,11 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { useUser } from "@/lib/user-context";
 
-function isBibliotecaActive(pathname: string) {
-  return pathname === "/" || pathname.startsWith("/juegos");
-}
-
-function isSalonActive(pathname: string) {
-  return pathname.startsWith("/salon");
-}
-
-function isAuthActive(pathname: string) {
-  return pathname.startsWith("/auth");
-}
+const isHomeActive = (p: string) => p === "/";
+const isGamesActive = (p: string) => p.startsWith("/games");
+const isHallActive = (p: string) => p.startsWith("/hall-of-fame");
+const isAboutActive = (p: string) => p.startsWith("/about");
+const isAuthActive = (p: string) => p.startsWith("/auth");
 
 export default function Nav() {
   const pathname = usePathname();
@@ -34,11 +28,17 @@ export default function Nav() {
           </div>
         </Link>
         <div className="links">
-          <Link href="/" className={isBibliotecaActive(pathname) ? "active" : ""}>
+          <Link href="/" className={isHomeActive(pathname) ? "active" : ""}>
+            Inicio
+          </Link>
+          <Link href="/games" className={isGamesActive(pathname) ? "active" : ""}>
             Biblioteca
           </Link>
-          <Link href="/salon" className={isSalonActive(pathname) ? "active" : ""}>
+          <Link href="/hall-of-fame" className={isHallActive(pathname) ? "active" : ""}>
             Salón de la Fama
+          </Link>
+          <Link href="/about" className={isAboutActive(pathname) ? "active" : ""}>
+            Acerca de
           </Link>
         </div>
         <div className="spacer"></div>
@@ -65,11 +65,17 @@ export default function Nav() {
         <div className="pixel neon-cyan" style={{ fontSize: 11, marginBottom: 16 }}>
           MENÚ
         </div>
-        <Link href="/" className={isBibliotecaActive(pathname) ? "active" : ""} onClick={close}>
+        <Link href="/" className={isHomeActive(pathname) ? "active" : ""} onClick={close}>
+          Inicio
+        </Link>
+        <Link href="/games" className={isGamesActive(pathname) ? "active" : ""} onClick={close}>
           Biblioteca
         </Link>
-        <Link href="/salon" className={isSalonActive(pathname) ? "active" : ""} onClick={close}>
+        <Link href="/hall-of-fame" className={isHallActive(pathname) ? "active" : ""} onClick={close}>
           Salón de la Fama
+        </Link>
+        <Link href="/about" className={isAboutActive(pathname) ? "active" : ""} onClick={close}>
+          Acerca de
         </Link>
         <Link href="/auth" className={isAuthActive(pathname) ? "active" : ""} onClick={close}>
           {user ? "Cuenta" : "Iniciar Sesión"}
